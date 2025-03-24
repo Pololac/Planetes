@@ -9,7 +9,7 @@
 
 try {
 
-    $db = new PDO('mysql:host=localhost;charset=utf8;dbname=exam_pdo', 'php', 'PHPcestSuper!');
+    $db = new PDO('mysql:host=localhost;charset=utf8;dbname=hb_r6_php_pdo_exam', 'php', 'PHPcestSuper!');
 
 } catch (PDOException) {
 
