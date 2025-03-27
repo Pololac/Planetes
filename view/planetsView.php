@@ -4,32 +4,33 @@
 // --------------------------------
 
 $titre = "Liste des planètes";
-include "include/header.php";
+include_once "includes/header.php";
 
 ?>
 
 <body>
     <div class="container mt-5 mb-5">
-        <a href="?" class="btn btn-secondary mb-2">Revenir à l'accueil</a>
+        <div class="d-flex justify-content-end">
+            <a href="?" class="btn btn-secondary mb-2">Revenir à l'accueil</a>
+        </div>
 
         <h2><?=$titre?></h2>
 
 
         <div class = "row">
-            <form method="GET" class="mb-4">
-            <div class="form-group col-4 mt-2 mb-2">
-                <input type="hidden" name="page" value="planet">
-                <label for="searchName"><b>Recherche par le nom : </b></label>
-                <input type="text" name="searchName" class="form-control" value="<?= htmlentities($_GET['searchName'] ?? '') ?>">
-                <button class="btn btn-primary mt-2" type="submit">Rechercher</button>
-            </div>
+            <form method="GET" class="mb-4 d-flex">
+                <div class="form-group col-4 mt-2 mb-2">
+                    <input type="hidden" name="page" value="planet">
+                    <label for="searchName"><b>Recherche par le nom : </b></label>
+
+                    <div class="d-flex">
+                        <input type="text" name="searchName" class="form-control" value="<?= htmlentities($_GET['searchName'] ?? '') ?>">
+
+                        <button class="btn btn-primary ms-2" type="submit">Rechercher</button>
+                    </div>
+                </div>
             </form>
         </div>
-
-
-
-        <a href="?page=planet&view=gaseous" class="btn btn-success mt-3">Voir uniquement les planètes gazeuses</a>
-        <a href="?page=planet&view=telluric" class="btn btn-success mt-3">Voir uniquement les planètes telluriques</a>
 
         <table class="table table-striped">
             <thead>
@@ -52,20 +53,21 @@ include "include/header.php";
                         <td><?=htmlentities($planet->getCategorie()); ?></td>
                         <td><?=htmlentities($planet->getDiametre()); ?></td>
                         <td><?=htmlentities($planet->getGravite()); ?></td>
-                        <td><a href="<?=htmlentities($planet->getLienNasa());?>"><?=htmlentities($planet->getLienNasa());?></a></td>
+                        <td><a href="<?=htmlentities($planet->getLienNasa());?>">En savoir plus</a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
 
-        <a href="?page=planet&action=create" class="btn btn-primary mt-2 mb-4" >Ajouter une planète</a>
-
+        <div class="d-flex justify-content-end">
+            <a href="?page=planet&action=create" class="btn btn-primary mt-2 mb-4" >Ajouter une planète</a>
+        </div>
     </div>
 </body>
 </html>
 
 <?php
 
-include "include/footer.php";
+include_once "includes/footer.php";
 
 ?>

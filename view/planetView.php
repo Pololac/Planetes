@@ -4,25 +4,31 @@
 // --------------------------------
 
 $titre = "Vue d'un seul planet";
-include "include/header.php";
+include_once "includes/header.php";
 
 ?>
 
 <body>
     <div class="container mt-2 mb-5 text-center">
-        <a href="?page=planet">Revenir à la liste générale</a>
+        <div class="d-flex justify-content-end">
+            <a href="?" class="btn btn-secondary mb-2">Revenir à l'accueil</a>
+        </div>
 
-        <h1><?=htmlentities($planet->getNom())?> (Planète <?=htmlentities($planet->getCategorie())?>)</h1>
+        <h1><?=htmlentities($planet->getNom())?></h1>
+        <h3>(Planète <?=htmlentities($planet->getCategorie())?>)</h3>
 
-        <a class="mt-4 mb-4" href="?page=planet&action=update&id=<?=$planet->getId()?>" role="button">Modifier la planète</a><
-
-        <a class="mt-2 mb-4" href="?page=planet&action=delete&id=<?=$planet->getId()?>" role="button">Supprimer la planète</a>
-
-
-        <p><img src="<?=htmlentities($planet->getImgUrl())?>" width="500"/></p>
-        <p><b>Diamètre</b> : <?=htmlentities($planet->getDiametre())?></p>
-        <p><b>Gravité</b> : <?=htmlentities($planet->getGravite())?></p>
-        <a href=<?=htmlentities($planet->getLienNasa()); ?>>Voir la planète sur le site de la NASA</a>
+        <div class="d-flex flex-column align-items-center">
+            <div class="d-flex justify-content-center align-items-center gap-4">
+                <a href="?page=planet&action=update&id=<?=$planet->getId()?>" role="button">Modifier la planète</a>
+                <a href="?page=planet&action=delete&id=<?=$planet->getId()?>" role="button">Supprimer la planète</a>
+            </div>
+           
+            <img src="<?=htmlentities($planet->getImgUrl())?>" width="500" class="mt-4 mb-4"/>
+            <p><b>Diamètre : </b><?=htmlentities($planet->getDiametre())?></p>
+            <p><b>Gravité :</b> <?=htmlentities($planet->getGravite())?></p>
+            <a href=<?=htmlentities($planet->getLienNasa()); ?>>Voir la planète sur le site de la NASA</a>
+        </div>
+        
        
     </div>
 </body>
@@ -30,6 +36,6 @@ include "include/header.php";
 
 <?php
 
-include "include/footer.php";
+include_once "includes/footer.php";
 
 ?>
