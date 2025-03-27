@@ -22,10 +22,14 @@ if (!empty($_GET['action'])) {
                     $success = "La planète a été ajoutée avec succès";     //Stocke un message de success
 
                 } catch (Exception $error) {
-                }  //Capture les exceptions et les stocke dans une variable
+                    // Afficher un message d'erreur utilisateur
+                    $errorMessage = "Une erreur est survenue lors de la création de la planète. Veuillez réessayer.";
+
+                    // Optionnel : consigner les détails techniques (pour le développeur)
+                    error_log("Erreur : " . $error->getMessage());
+                }
 
             } else {
-
                 $error = new Exception('Tous les champs sont obligatoires');
             }
         }
