@@ -10,59 +10,31 @@ include_once "includes/header.php";
 
 <body>
     <div class="container mt-5 mb-5">
-        <div class="d-flex justify-content-end">
-            <a href="?" class="btn btn-secondary mb-2">Revenir à l'accueil</a>
+
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <h2><?=$titre?></h2>
+
+            <div class="d-flex justify-content-center mt-4">
+                <a href="?page=planet&action=create" class="btn btn-primary" >Ajouter une planète</a>
+            </div>
+
         </div>
 
-        <h2><?=$titre?></h2>
-
-
-        <div class = "row">
-            <form method="GET" class="mb-4 d-flex">
-                <div class="form-group col-4 mt-2 mb-2">
-                    <input type="hidden" name="page" value="planet">
-                    <label for="searchName"><b>Recherche par le nom : </b></label>
-
-                    <div class="d-flex">
-                        <input type="text" name="searchName" class="form-control" value="<?= htmlentities($_GET['searchName'] ?? '') ?>">
-
-                        <button class="btn btn-primary ms-2" type="submit">Rechercher</button>
+        <div class="row justify-content-center">
+            <?php foreach ($planets as $planet) : ?>
+                <div class="col-12 col-md-3 d-flex flex-column align-items-center mt-md-5 mb-5">
+                    <div class="mb-3">
+                        <img src="<?= htmlentities($planet->getImgUrl()) ?>" alt="Planète <?= htmlentities($planet->getNom()); ?>" width="200" class="rounded-circle"  />
                     </div>
+                    <a href="?page=planet&id=<?= $planet->getId() ?>">
+                        <h3><?= htmlentities($planet->getNom()); ?></h3>
+                    </a>
                 </div>
-            </form>
-        </div>
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Image</th>
-                    <th>Nom</th>
-                    <th>Catégorie</th>
-                    <th>Diamètre</th>
-                    <th>Gravité</th>
-                    <th>Lien Nasa</th>
-
-                </tr>
-            </thead>
-
-            <tbody>
-                <?php foreach($planets as $planet) : ?>
-                    <tr>
-                        <td><img src="<?=htmlentities($planet->getImgUrl())?>" width="200"/></td>
-                        <td><a href="?page=planet&id=<?=$planet->getId()?>"><?=htmlentities($planet->getNom()); ?></a></td>
-                        <td><?=htmlentities($planet->getCategorie()); ?></td>
-                        <td><?=htmlentities($planet->getDiametre()); ?></td>
-                        <td><?=htmlentities($planet->getGravite()); ?></td>
-                        <td><a href="<?=htmlentities($planet->getLienNasa());?>">En savoir plus</a></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-
-        <div class="d-flex justify-content-end">
-            <a href="?page=planet&action=create" class="btn btn-primary mt-2 mb-4" >Ajouter une planète</a>
+            <?php endforeach; ?>
         </div>
     </div>
+
+
 </body>
 </html>
 
