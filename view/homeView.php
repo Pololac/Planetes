@@ -1,26 +1,25 @@
-<?php 
+<?php
 // --------------------------------
 // Vue de l'accueil
 // --------------------------------
 
-$titre = "Accueil";
-include "include/header.php";
+$titre = "À la découverte des planètes du système solaire";
 
+include_once "includes/header.php";
 ?>
 
-<body>
-    <div class="container mt-5 mb-5">
-        <h1><?=$titre?></h1>
-        <p><a href="?page=planet">Voir la liste des planètes</a></p>
-        <p><a href="?page=planet&view=telluric">Voir la liste des planètes telluriques</a></p>
-        <p><a href="?page=planet&view=gaseous">Voir la liste des planètes gazeuses</a></p>
+<main>
+    <div class="container text-center mt-5 mb-5">
+        <h1>Bienvenue sur Space Learn</h1>
+        <p>Explorez les mystères de notre système solaire et découvrez les merveilles des planètes !</p>
     </div>
-</body>
 
-</html>
+    <div class="image-wrapper">
+        <img src="assets/images/planetes.jpg" alt="Une magnifique illustration du système solaire">
+    </div>
+
+</main>
 
 <?php
-
-include "include/footer.php";
-
+include_once "includes/footer.php";
 ?>
