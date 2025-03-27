@@ -1,37 +1,41 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Confirmer suppression</title>
-</head>
+<?php
+$titre = "Supprimer la planète";
+include_once "includes/header.php";
+
+?>
+
 <body>
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-5">
 
+    <div class="container mt-2 mb-5">
+        <div class="d-flex justify-content-end">
+            <a href="?page=planet" class="btn btn-secondary mb-2">Revenir à la liste générale</a>
+        </div>
 
-            <?php
+        <div class="text-center mb-4">
+            <h2><?=$titre?></h2>
+        </div>
 
+        <?php
             if(isset($success)){?>
-
                 <p style='color:green'><?=$success?></p>
-                <p><a href="?page=planet">Retour à la liste des planètes</a></p><?php
+                
+            <?php
 
             } else {
                 if (isset($error)){?>
                 <p style="color:red"><?=$error->getMessage()?></p><?php ;
                 }?>
 
-                <h3>Êtes-vous sûr de vouloir supprimer <strong><?=$planet->getNom()?></strong>?</h3>
+                <div class="d-flex flex-column flex-md-row justify-content-center align-items-center mt-5">
+                    <p>Êtes-vous sûr de vouloir supprimer <strong><?=$planet->getNom()?></strong>?</p>
 
-                <form method="post">
-                    <input type="submit" class="btn btn-primary mt-2 mb-4" name="confirm" value = "OUI">
-                    <input type="submit" class="btn btn-primary mt-2 mb-4" name="confirm" value = "NON">
-                </form>
-
-            <?php }?>
+                    <form method="post" class="d-flex flex-row ms-4 gap-2">
+                        <input type="submit" class="btn btn-primary mt-2 mb-4" name="confirm" value = "OUI">
+                        <input type="submit" class="btn btn-primary mt-2 mb-4" name="confirm" value = "NON">
+                    </form>
+                </div>
+                
+        <?php }?>
 
         </div>
     </div>
