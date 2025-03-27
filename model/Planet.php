@@ -99,10 +99,17 @@ class Planet
     }
 
 
-    public function getDiametre(): string
+    public function getDiametre(): int
+    {
+        return $this->diametre;
+    }
+    
+    // Pour l'affichage formaté
+    public function getDiametreFormatted(): string
     {
         return $this->diametre . ' km';
     }
+
     public function setDiametre(int $diametre): void
     {
         if($this->validateDiametre($diametre)) {
@@ -119,10 +126,15 @@ class Planet
     }
 
 
-    public function getGravite(): string
+    public function getGravite(): int|float
+    {
+        return $this->gravite;
+    }
+    public function getGraviteFormatted(): string
     {
         return $this->gravite . ' m/s²';
     }
+
     public function setGravite(float $gravite): void
     {
         if($this->validateGravite($gravite)) {

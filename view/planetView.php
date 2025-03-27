@@ -24,8 +24,8 @@ include_once "includes/header.php";
             </div>
            
             <img src="<?=htmlentities($planet->getImgUrl())?>" width="500" class="mt-4 mb-4"/>
-            <p><b>Diamètre : </b><?=htmlentities($planet->getDiametre())?></p>
-            <p><b>Gravité :</b> <?=htmlentities($planet->getGravite())?></p>
+            <p><b>Diamètre : </b><?=htmlentities($planet->getDiametreFormatted())?></p>
+            <p><b>Gravité :</b> <?=htmlentities($planet->getGraviteFormatted())?></p>
             <a href=<?=htmlentities($planet->getLienNasa()); ?>>Voir la planète sur le site de la NASA</a>
         </div>
         
