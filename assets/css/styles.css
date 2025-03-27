@@ -1,17 +1,18 @@
 body {
-    background-color: #101820; /* Fond sombre */
-    color: #f0f0f0; /* Texte clair */
+    background-color: #101820;
+    color: #f0f0f0; 
 }
 
 .navbar {
-    background-color: #030A0F !important; /* Navbar bleu électrique */
+    background-color: #030A0F !important;
 }
 
 .image-wrapper {
-    text-align: center; /* Centre horizontalement le texte et les images */
-    margin-top: 50px;  /* Ajoute un espace en haut */
+    text-align: center; 
+    margin-top: 50px;  
 }
 .image-wrapper img {
-    max-width: 50%; /* Limite la taille de l'image à 50% du parent */
-    display: inline-block; /* Pour que l'image soit affectée par text-align */
+    max-width: 50%;
+    display: inline-block; 
 }
+
